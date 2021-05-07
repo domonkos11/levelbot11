@@ -44,16 +44,16 @@ bot.on('message', (message) => {
 
     const parts = message.content.split(' ');
     if(parts[0] === '!help-levels'){
-        message.channel.send(new Discord.MessageEmbed().setTitle("Help").setDescription("**Hey! You said that you want the commands, right? OK, here you are: ** \n  . 1. !rank-levels : view your current rank. \n  2. !testlevels-levels : test if the bot working or not. \n  3. !botinfo-levels : how many servers does the bot in? \n  4. !help-levels : this help.").setColor("#3277a8"))
-        message.channel.send("** INFO: The bot is in 76 servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
+        message.channel.send(new Discord.MessageEmbed().setTitle("Help").setDescription("**Hey! You said that you want the commands, right? OK, here you are: ** \n 1. !rank-levels : view your current rank. \n  2. !testlevels-levels : test if the bot working or not. \n  3. !botinfo-levels : how many servers does the bot in? \n  4. !help-levels : this help.").setColor("#3277a8"))
+        message.channel.send("**INFO: The bot is in 76 servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
     }
     if(parts[0] === '!testlevels-levels') {
         message.reply('levels are working');
-        message.channel.send("** INFO: The bot is in 76 servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
+        message.channel.send("**INFO: The bot is in 76 servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
     }
     if(parts[0] === '!botinfo-levels'){
         message.reply("The bot is currently in " + message.client.guilds.cache.size + " servers. Hopefully it goes bigger! :)")
-        message.channel.send("** INFO: The bot is in 76 servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
+        message.channel.send("**INFO: The bot is in 76 servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
     }
     if(parts[0] === '!rank-levels'){
         message.reply("You are currently on level " + userStats.level + ". Good luck! :)")
