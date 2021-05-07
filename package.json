@@ -1,0 +1,18 @@
+{
+  "name": "levelbot11",
+  "version": "1.0.0",
+  "description": "Levels like mee6. But it counts in every message (including spam)",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "discord.js-commando": "^0.12.3",
+    "jsonfile": "^6.1.0",
+    "random": "^3.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
