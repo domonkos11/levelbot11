@@ -44,7 +44,7 @@ bot.on('message', (message) => {
 
     const parts = message.content.split(' ');
     if(parts[0] === '!help-levels'){
-        message.channel.send(new Discord.MessageEmbed().setTitle("Help").setDescription("**Hey! You said that you want the commands, right? OK, here you are: ** \n  1. !rank-levels : view your current rank. \n  2. !testlevels-levels : test if the bot working or not. \n  3. !botinfo-levels : how many servers does the bot in? \n  4. !help-levels : this help. \n  5. !uptime-levels : View the bot's current uptime.").setColor("#3277a8"))
+        message.channel.send(new Discord.MessageEmbed().setTitle("Help").setDescription("**Hey! You said that you want the commands, right? OK, here you are: ** \n  1. !rank-levels : view your current rank. \n  2. !testlevels-levels : test if the bot working or not. \n  3. !botinfo-levels : how many servers does the bot in? \n  4. !help-levels : this help. \n  5. !uptime-levels : View the bot's current uptime. 6. !ping-levels : View the bot's ping.").setColor("#3277a8"))
         message.channel.send("**INFO: The bot is in " + message.client.guilds.cache.size + " servers. Once it reaches 100, you can't use it anymore. Take it, or leave it :) So send it to your friends, and they can use the bot before we reach 100 servers!  **")
     }
     if(parts[0] === '!testlevels-levels') {
@@ -59,6 +59,10 @@ bot.on('message', (message) => {
     }
     if(parts[0] === '!uptime-levels'){
         message.reply("I have been up for like " + bot.uptime)
+    }
+    if(parts[0] === '!ping-levels'){
+        var ping = Date.now() - message.createdTimestamp + " ms"
+        message.reply("Pong!" + "And the ping is: " &ping)
     }
 });
 
