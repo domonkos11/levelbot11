@@ -65,11 +65,11 @@ bot.on('message', (message) => {
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = Math.floor(totalSeconds % 60);
-        let uptime = `${days} days, \n ${hours} hours, \n ${minutes} minutes, and \n ${seconds} seconds`;
+        let uptime = ` ${days} days, \n ${hours} hours, \n ${minutes} minutes, and \n ${seconds} seconds`;
         message.reply("I have been up for like \n" + uptime);
     }
     if(parts[0] === '!ping-levels'){
-        message.reply("Pong!" + " And the ping is: " + bot.ws.ping);
+        message.reply("Pong!" + " And the ping is: " + bot.ws.ping + " ms.");
     }
 });
 
