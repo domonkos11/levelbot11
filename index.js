@@ -58,7 +58,7 @@ bot.on('message', (message) => {
         message.reply("You are currently on level " + userStats.level + ". Good luck! :)");
     }
     if(parts[0] === '!uptime-levels'){
-        let totalSeconds = (client.uptime / 1000);
+        let totalSeconds = (bot.uptime / 1000);
         let days = Math.floor(totalSeconds / 86400);
         totalSeconds %= 86400;
         let hours = Math.floor(totalSeconds / 3600);
