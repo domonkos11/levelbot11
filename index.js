@@ -79,7 +79,7 @@ bot.on('message', (message) => {
     if(!message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
-    if (cmd === "say-levels ")
+    if (cmd === "say-levels")
     if(args.length < 1) {
         message.channel.send("Nothing to say? :D")
         if(message.deletable) message.delete;
