@@ -82,9 +82,14 @@ bot.on('message', (message) => {
     if (cmd === "say-levels")
     if(args.length < 1) {
         message.channel.send("Nothing to say? :D")
-        if(message.deletable) message.delete;
+        if(message.deletable){
+            message.delete();
+        } 
     } else {
-        message.channel.send(args.slice(1).join(" "))
+        message.channel.send(args.join(" "));
+        if(message.deletable) {
+            message.delete();
+        }
     }
 
 });
