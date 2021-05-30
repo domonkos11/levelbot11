@@ -12,6 +12,9 @@ if (fs.existsSync('stats.json')) {
     stats = jsonfile.readFileSync('stats.json');
 }
 
+
+
+
 bot.on('message', (message) => {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -71,6 +74,10 @@ bot.on('message', (message) => {
     if(parts[0] === '!ping-levels'){
         message.reply("Pong!" + " And the ping is: " + bot.ws.ping + " ms.");
     }
+    // say command
+    const prefix = "!";
+    if(!message.content.startsWith(prefix))
+    const args = messgae.content.slice()
 });
 
 bot.login(config.token);
