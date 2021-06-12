@@ -106,6 +106,10 @@ if (cmd === "eval-levels") {
         message.channel.send("no private info leaks")
         return;
     }
+    if(message.content.includes("config")) {
+        message.channel.send("no cfig leaks sry")
+        return;
+    }
     try {
         eval(args.join(" "))
         message.channel.send("Success!")
