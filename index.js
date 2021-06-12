@@ -111,6 +111,12 @@ if (cmd === "eval-levels") {
         return;
     }
     try {
+
+        const output = eval(args.join(" "))
+        if(output.includes(config.token)) {
+            message.channel.send("You're smart, but I'm smarter :)")
+            return;
+        }
         eval(args.join(" "))
         message.channel.send("Success!")
     } catch (e) {
