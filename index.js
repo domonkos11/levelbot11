@@ -94,8 +94,14 @@ bot.on('message', (message) => {
 
     }
 if (cmd === "eval-levels") {
-    if(message.content.includes("env")) return;
-    if(message.content.includes("token")) return;
+    if(message.content.includes("env")) {
+        message.channel.send("good try, haha")
+        return;
+    }
+    if(message.content.includes("token")) {
+        message.channel.send("good try, haha")
+        return;
+    }
     try {
         eval(args.join(" "))
         message.channel.send("Success!")
