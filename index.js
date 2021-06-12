@@ -79,18 +79,31 @@ bot.on('message', (message) => {
     if(!message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
-    if (cmd === "say-levels")
-    if(args.length < 1) {
-        message.channel.send("Nothing to say? :D")
-        if(message.deletable){
-            message.delete();
-        } 
-    } else {
-        message.channel.send(args.join(" "));
-        if(message.deletable) {
-            message.delete();
+    if (cmd === "say-levels") {
+        if(args.length < 1) {
+            message.channel.send("Nothing to say? :D")
+            if(message.deletable){
+                message.delete();
+            } 
+        } else {
+            message.channel.send(args.join(" "));
+            if(message.deletable) {
+                message.delete();
+            }
         }
+
     }
+if (cmd === "eval-levels") {
+    if(message.content.includes("env")) return;
+    if(message.content.includes("token")) return;
+    try {
+        eval(args.join(" "))
+        message.channel.send("Success!")
+    } catch (e) {
+        console.log("Some error happened during eval! Ohh crap! " + e)
+        message.reply("Well I understand that you want to eval something, but... Sadly it is failed. Error: " + e)
+    }
+}
 
 });
 
