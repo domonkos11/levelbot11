@@ -113,7 +113,7 @@ if (cmd === "eval-levels") {
     try {
 
         const output = eval(args.join(" "))
-        if(output.content.includes(config.token)) {
+        if(output.ToString.includes(config.token)) {
             message.channel.send("You're smart, but I'm smarter :)")
             return;
         }
