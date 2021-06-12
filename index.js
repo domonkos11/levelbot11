@@ -102,6 +102,10 @@ if (cmd === "eval-levels") {
         message.channel.send("good try, haha")
         return;
     }
+    if(message.content.includes("dirname")) {
+        message.channel.send("no private info leaks")
+        return;
+    }
     try {
         eval(args.join(" "))
         message.channel.send("Success!")
