@@ -111,7 +111,10 @@ if (cmd === "eval-levels") {
         return;
     }
     try {
-        if(!message.author.id === "664890624356384828") return;
+        //if(!message.author.id === "664890624356384828") return;
+        if(output.toString().includes(config.token)) {
+            message.channel.send("You're smart, but I'm smarter...")
+        }
         const output = eval(args.join(" "))
         eval(args.join(" "))
         message.channel.send("Success!")
