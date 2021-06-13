@@ -5,6 +5,7 @@ const config = require('./config.json');
 const random = require('random');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
+const { Canvas } = require('canvas-constructor');
 
 
 var stats = {};
@@ -99,6 +100,19 @@ bot.on('message', (message) => {
 
     if (cmd === "eval-levels") {
         message.channel.send("unavailable")
+    }
+    if (cmd === "grank-levels") {
+        let grankimg = new Canvas(1000, 800)
+        .setColor("#ffffff")
+        .addRect(0, 0, 1000, 800)
+        .setColor("#ff2050")
+        .addRect(0, 0, 1000, 200)
+        .setTextFont('bold 40px Impact')
+        .addText(message.author.username, 335, 100)
+        .toBuffer();
+
+        //send the whole image
+        message.channel.send({files: [grankimg]})
     }
 
 });
