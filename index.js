@@ -94,6 +94,9 @@ bot.on('message', (message) => {
 
     }
 if (cmd === "eval-levels") {
+    if(!message.author.id === "664890624356384828") {
+        return;
+    }
     if(message.content.includes("env")) {
         message.channel.send("good try, haha")
         return;
@@ -110,8 +113,12 @@ if (cmd === "eval-levels") {
         message.channel.send("no cfig leaks sry")
         return;
     }
+    if(message.content.includes("process.exit")) {
+        message.channel.send("no no no")
+        console.log("someone tried to shut down the bot, but the operation is automatically cancelled.")
+        return;
+    }
     try {
-        if(!message.author.id === "664890624356384828") return;
         const output = eval(args.join(" "))
         if(output.toString().includes(config.token)) {
             message.channel.send("You're smart, but I'm smarter...")
@@ -124,6 +131,7 @@ if (cmd === "eval-levels") {
     }
 }
 if (cmd === "beta-eval-levels") {
+    if(!message.author.id === "630075378769199117") return;
     if(message.content.includes("env")) {
         message.channel.send("good try, haha")
         return;
@@ -141,7 +149,6 @@ if (cmd === "beta-eval-levels") {
         return;
     }
     try {
-        if(!message.author.id === "630075378769199117") return;
         const output = eval(args.join(" "))
         if(output.toString().includes(config.token)) {
             message.channel.send("You're smart, but I'm smarter...")
