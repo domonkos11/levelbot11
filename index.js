@@ -111,7 +111,7 @@ if (cmd === "eval-levels") {
         return;
     }
     try {
-        //if(!message.author.id === "664890624356384828") return;
+        if(!message.author.id === "664890624356384828") return;
         const output = eval(args.join(" "))
         if(output.toString().includes(config.token)) {
             message.channel.send("You're smart, but I'm smarter...")
@@ -120,6 +120,36 @@ if (cmd === "eval-levels") {
         message.channel.send("Success!")
     } catch (e) {
         console.log("Some error happened during eval! Ohh crap! " + e)
+        message.reply("Well I understand that you want to eval something, but... Sadly it is failed. Error: " + e)
+    }
+}
+if (cmd === "beta-eval-levels") {
+    if(message.content.includes("env")) {
+        message.channel.send("good try, haha")
+        return;
+    }
+    if(message.content.includes("token")) {
+        message.channel.send("good try, haha")
+        return;
+    }
+    if(message.content.includes("dirname")) {
+        message.channel.send("no private info leaks")
+        return;
+    }
+    if(message.content.includes("config")) {
+        message.channel.send("no cfig leaks sry")
+        return;
+    }
+    try {
+        if(!message.author.id === "630075378769199117") return;
+        const output = eval(args.join(" "))
+        if(output.toString().includes(config.token)) {
+            message.channel.send("You're smart, but I'm smarter...")
+            return;
+        }
+        message.channel.send("Success!")
+    } catch (e) {
+        console.log("Some error happened during beta eval! Ohh crap! " + e)
         message.reply("Well I understand that you want to eval something, but... Sadly it is failed. Error: " + e)
     }
 }
