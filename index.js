@@ -102,13 +102,17 @@ bot.on('message', (message) => {
         message.channel.send("unavailable")
     }
     if (cmd === "grank-levels") {
-        let grankimg = new Canvas(1000, 800)
-        .setColor("#ffffff")
-        .addRect(0, 0, 1000, 800)
-        .setColor("#ff2050")
-        .addRect(0, 0, 1000, 200)
+        let grankimg = new Canvas(500, 250)
+        .setColor('#AEFD54')
+        .printRectangle(5, 5, 990, 790)
+        .setColor('#FFAE23')
         .setTextFont('bold 40px Impact')
-        .addText(message.author.username, 335, 100)
+        .printText(message.author.username, 80, 55)
+        .setTextFont('bold 20px Impact')
+        .printText(userStats.level, 30, 140)
+        .printText("You need " + xpToNextLevel, 30, 170 + " XPs to the next level.")
+        .printText("You currently have " + userStats.xp, 30, 200 + " XPs.")
+        
         .toBuffer();
 
         //send the whole image
