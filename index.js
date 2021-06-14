@@ -112,6 +112,8 @@ bot.on('message', (message) => {
         .setProgressBar('#FFA500', "COLOR")
         .setUsername(message.author.username)
         .setDiscriminator(message.author.discriminator)
+        .setLevel(userStats.level)
+        
         rank.build()
         .then(data => {
             const attatchment = new Discord.MessageAttachment(data, 'funny.png');
