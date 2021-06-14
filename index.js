@@ -59,7 +59,7 @@ bot.on('message', (message) => {
     if(parts[0] === '!botinfo-levels'){
         message.reply("The bot is currently in " + message.client.guilds.cache.size + " servers. Hopefully it goes bigger! :)");
     }
-    if(parts[0] === '!rank-levels'){
+    if(parts[0] === '!beta-rank-levels'){
         message.reply("You are currently on level " + userStats.level + ". Good luck! :)");
     }
     if(parts[0] === '!uptime-levels'){
@@ -102,7 +102,7 @@ bot.on('message', (message) => {
     if (cmd === "eval-levels") {
         message.channel.send("unavailable")
     }
-    if (cmd === "grank-levels") {
+    if (cmd === "rank-levels") {
         // graphical level thing
         const rank = new canvacord.Rank()
         .setAvatar(message.author.displayAvatarURL({ dynamic: false, format: 'png'}))
@@ -116,7 +116,7 @@ bot.on('message', (message) => {
         
         rank.build()
         .then(data => {
-            const attatchment = new Discord.MessageAttachment(data, 'funny.png');
+            const attatchment = new Discord.MessageAttachment(data, 'rankcard.png');
             message.channel.send(attatchment)
 
             // send the whole thing as an embed
