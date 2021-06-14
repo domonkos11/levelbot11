@@ -6,6 +6,7 @@ const random = require('random');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
 const { Canvas } = require('canvas-constructor');
+const canvacord = require('canvacord')
 
 
 var stats = {};
@@ -102,21 +103,29 @@ bot.on('message', (message) => {
         message.channel.send("unavailable")
     }
     if (cmd === "grank-levels") {
-        let grankimg = new Canvas(500, 250)
-        .setColor('#AEFD54')
-        .printRectangle(5, 5, 990, 790)
-        .setColor('#FFAE23')
-        .setTextFont('bold 40px Impact')
-        .printText(message.author.username, 80, 55)
-        .setTextFont('bold 20px Impact')
-        .printText(userStats.level, 30, 140)
-        .printText("You need " + xpToNextLevel, 30, 170 + " XPs to the next level.")
-        .printText("You currently have " + userStats.xp, 30, 200 + " XPs.")
-        
-        .toBuffer();
+        // graphical level thing
+        const rank = new canvacord.Rank()
+        .setAvatar(message.author.displayAvatarURL({ dynamic: false, format: 'png'}))
+        .setCurrentXP(userStats.xp)
+        .setRequiredXP(xpToNextLevel)
+        .setStatus(message.member.presence.status)
+        .setProgressBar('#FFA500', "COLOR")
+        .setUsername(message.author.username)
+        .setDiscriminator(message.author.discriminator)
+        rank.build()
+        .then(data => {
+            const attatchment = new Discord.MessageAttachment(data, 'funny.png');
+            message.channel.send(attatchment)
 
-        //send the whole image
-        message.channel.send({files: [grankimg]})
+            // send the whole thing as an embed
+            /* const rankembed = new Discord.MessageEmbed()
+            .setColor('#e3b73d')
+            .setTitle(message.author.tag + "'s rank:")
+            .setImage(attatchment)
+            .setFooter('You can view your rank (just your level, without image) the easier way, with !rank-levels');
+            message.channel.send(rankembed) */
+            // this thing doesn't work :/
+        })
     }
 
 });
